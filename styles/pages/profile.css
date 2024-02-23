@@ -5,15 +5,17 @@
 .me-header {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .avatar {
-    width: 4rem;
-    height: 4rem;
+    width: 6rem;
+    height: 6rem;
 
     border-radius: 1rem;
 }
 
 .name {
-    margin-left: 1rem;
+    height: min-content;
+    margin-left: 1.5rem;
 }
