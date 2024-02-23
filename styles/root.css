@@ -1,0 +1,23 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+
+    background-color: #3C3C3C;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+
+    color: white;
+}
+
+main {
+    max-width: 32rem;
+    min-width: 300px;
+
+    padding: 8px;
+}

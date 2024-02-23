@@ -1,0 +1,19 @@
+#about-me {
+    margin-top: 6rem;
+}
+
+.me-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.avatar {
+    width: 4rem;
+    height: 4rem;
+
+    border-radius: 1rem;
+}
+
+.name {
+    margin-left: 1rem;
+}

@@ -1,0 +1,54 @@
+#nav {
+    border-radius: 1rem;
+    background-color: rgb(30, 30, 30);
+
+    position: absolute;
+    z-index: 2;
+
+    height: max-content;
+}
+
+nav {
+    display: flex;
+}
+
+.nav-item {
+    
+}
+
+.icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+
+@media screen and (min-width: 501px) {
+    #nav {
+        top: 0;
+        bottom: 0;
+        margin-top: auto;
+        margin-bottom: auto;
+        left: 1rem;
+
+        width: max-content;
+    }
+    
+    nav {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #nav {
+        max-width: 300px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: 1rem;
+    }
+    
+    nav {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
