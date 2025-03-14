@@ -1,6 +1,6 @@
 # 🌱 𝙃𝙚𝙡𝙡𝙤, 𝙄'𝙢 𝙬𝙝𝙖𝙩𝙧𝙪𝙨𝙝𝙞𝙠!
 
-![Banner](https://raw.githubusercontent.com/topanim/topanim/refs/heads/master/github/banner.jpg)
+![Banner](https://raw.githubusercontent.com/topanim/topanim/7528d4b8baafcc60ffb5df5fc854ee823c871f49/github/banner.jpg)
 
 _"𝙒𝙧𝙞𝙩𝙚 𝙘𝙤𝙙𝙚 𝙩𝙝𝙖𝙩'𝙨 𝙖𝙨 𝙘𝙡𝙚𝙖𝙣 𝙖𝙨 𝙖 𝙛𝙤𝙧𝙚𝙨𝙩 𝙖𝙛𝙩𝙚𝙧 𝙧𝙖𝙞𝙣."_ 🌧️
 
@@ -14,15 +14,15 @@ _"𝙒𝙧𝙞𝙩𝙚 𝙘𝙤𝙙𝙚 𝙩𝙝𝙖𝙩'𝙨 𝙖𝙨 𝙘𝙡�
 [![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-blue?logo=postgresql&logoColor=white)](https://postgresql.org)
 
-[![Jetpack Compose](https://img.shields.io/badge/-jetpack_compose-green?logo=jetpackcompose&logoColor=white)](https://developer.android.com/compose)
-[![Disnake](https://img.shields.io/badge/-jetpack_compose-26A5E4?logo=discord&logoColor=white)](https://disnake.dev/)
+[![Jetpack Compose](https://img.shields.io/badge/-Jetpack_Compose-green?logo=jetpackcompose&logoColor=white)](https://developer.android.com/compose)
+[![Disnake](https://img.shields.io/badge/-Disnake-3776AB?logo=discord&logoColor=white)](https://disnake.dev/)
 [![Aiogram](https://img.shields.io/badge/-Aiogram-26A5E4?logo=telegram&logoColor=white)](https://aiogram.dev)
 
 ### 🌿 𝙒𝙝𝙖𝙩'𝙨 𝙂𝙧𝙚𝙚𝙣 𝙉𝙤𝙬
 
 - 🔭 **Working on:** [𝙒𝙃𝘼𝙏-𝙎𝙘𝙝𝙚𝙙𝙪𝙡𝙚](https://github.com/topanim/WHAT-Schedule-android.git)
 - ☘️ **Learning:** `Android` & `Jetpack Compose`
-- 🧰 **Tools:** `Room`, `Ktor`, `Firebase`, `Docker`
+- 🧰 **Tools:** `Koin`, `Ktor`, `Room`, `Kotlin Coroutines`
 
 ### 🍃 𝙎𝙞𝙜𝙣𝙖𝙩𝙪𝙧𝙚 𝘾𝙤𝙙𝙚
 
