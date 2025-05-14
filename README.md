@@ -48,8 +48,6 @@ object GreenDev {
 [![Telegram](https://img.shields.io/badge/-Telegram-26A5E4?logo=telegram&logoColor=white)](https://t.me/whatrushik)
 [![Email](https://img.shields.io/badge/-Email-EA4335?logo=gmail&logoColor=white)](mailto:gorogannisan641@gmail.com)
 
-**𝙇𝙚𝙩'𝙨 𝙗𝙪𝙞𝙡𝙙 𝙨𝙤𝙢𝙚𝙩𝙝𝙞𝙣𝙜 𝙖𝙬𝙚𝙨𝙤𝙢𝙚 𝙩𝙤𝙜𝙚𝙩𝙝𝙚𝙧!** 🚀
-
 ---
 
 [![GitHub Stats](https://github-readme-stats.vercel.app/api?username=topanim&show_icons=true&theme=vue-dark&bg_color=22543D&title_color=8BC34A&icon_color=4CAF50)](https://github.com/yourname)
