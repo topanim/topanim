@@ -1,90 +1,598 @@
 <!DOCTYPE html>
-<html lang="ru">
-    <head>
-        <meta charset="utf-8">
-        <title>Гор Оганнисян</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WHATRUSHIK</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="page-nav">
+      <ul>
+        <li><a href="#hero" class="active"></a></li>
+        <li><a href="#features"></a></li>
+        <li><a href="#reviews"></a></li>
+        <li><a href="#cta"></a></li>
+        <li><a href="#footer"></a></li>
+      </ul>
+    </nav>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <div class="orbital-system">
+      <div class="orbit orbit1"></div>
+      <div class="orbit orbit2"></div>
+      <div class="orbit orbit3"></div>
+      <div class="orbiting-satellite">
+        <img src="images/meteor.svg" alt="Orbiting Satellite" />
+      </div>
+    </div>
 
-        <link rel="stylesheet" type="text/css" href="./styles/fonts/bowler.css"/>
-        <link rel="stylesheet" type="text/css" href="./styles/fonts/rostov.css"/>
-        <link rel="stylesheet" type="text/css" href="./styles/fonts/namu.css"/>
-        <link rel="stylesheet" type="text/css" href="./styles/fonts/srbija_sans.css"/>
+    <section id="hero" class="hero section">
+      <div class="stars"></div>
+      <div class="hero-moon">
+        <img src="images/moon.svg" alt="Swaying Moon" />
+      </div>
+      <div class="container">
+        <h1>WHATRUSHIK</h1>
+        <p class="subtitle">"Write code that's as clean as a forest after rain." 🌧️</p>
+        <div class="tech-badges">
+          <span class="badge kotlin">Kotlin</span>
+          <span class="badge python">Python</span>
+          <span class="badge javascript">JavaScript</span>
+          <span class="badge postgresql">PostgreSQL</span>
+        </div>
+      </div>
+      <a href="#features" class="scroll-down">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 5L12 19"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M19 12L12 19L5 12"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+      <div class="music-control">
+        <button class="music-btn">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 18V6L21 3V15"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6 21C7.65685 21 9 19.6569 9 18C9 16.3431 7.65685 15 6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M18 18C19.6569 18 21 16.6569 21 15C21 13.3431 19.6569 12 18 12C16.3431 12 15 13.3431 15 15C15 16.6569 16.3431 18 18 18Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span>MUSIC</span>
+        </button>
+      </div>
+    </section>
 
-        <link rel="stylesheet" type="text/css" href="./styles/root.css"/>
-        <link rel="stylesheet" type="text/css" href="./styles/nav/root.css"/>
-        <link rel="stylesheet" type="text/css" href="./styles/pages/profile.css"/>
-        <link rel="stylesheet" type="text/css" href="./styles/pages/root.css"/>
-
-        <script type="module" src="./scripts/content.js"></script>
-    </head>
-    <body>
-        <section id="nav">
-            <nav>
-                <div class="nav-item">
-                    <img class="icon" src="./res/nav/home.svg" alt="home">
-                </div>
-
-                <div class="nav-item">
-                    <img class="icon" src="./res/nav/person.svg" alt="about me">
-                </div>
-
-                <div class="nav-item">
-                    <img class="icon" src="./res/nav/suitcase.svg" alt="my works">
-                </div>
-
-                <div class="nav-item">
-                    <img class="icon" src="./res/nav/message.svg" alt="contacts">
-                </div>
-
-            </nav>
-        </section>
-        <main>
-            <div id="about-me" class="page">
-                <div class="me-header">
-                    <img class="avatar" src="./res/profile/me.jpg" alt="аватар"/>
-                    <h1 class="name">Гор Оганнисян</h2>
-                </div>
-                <div class="about me">
-                    <h2>Обо мне</h2>
-                    <p>Лайтовый тип</p>
-                </div>
-
-                <div class="about my-skills">
-                    <h2>Стэк</h2>
-                    <p>Ну там андроид все такое</p>
-                </div>
-
-                <div class="about my-hackathons">
-                    <h2>Мероприятия</h2>
-                    <p>Ну там дгту таган дважды и тп</p>
-                </div>
+    <section id="features" class="features section">
+      <div class="container">
+        <h2>MY SKILLS</h2>
+        <div class="features-row">
+          <div class="feature-column">
+            <h3 class="section-subtitle">MY TOOLKIT</h3>
+            <div class="tools-box">
+              <div class="tools-grid">
+                <div class="tool">Koin</div>
+                <div class="tool">Ktor</div>
+                <div class="tool">Room</div>
+                <div class="tool">Kotlin Coroutines</div>
+                <div class="tool">Jetpack Compose</div>
+                <div class="tool">Disnake</div>
+                <div class="tool">Aiogram</div>
+              </div>
             </div>
+          </div>
 
-            <div id="about-my-projects" class="page">
-                <div class="project">
-                    <div>
-                        <img src="" alt=""/>
-                        <h3>Проект</h3>
-                    </div>
-                    <div class="stack">
-
-                    </div>
-                    <div class="about-project">
-                        <p>Крутой проект</p>
-                    </div>
+          <div class="feature-column">
+            <h3 class="section-subtitle">MY TECH GARDEN</h3>
+            <div class="feature-wheel">
+              <div class="wheel-outer"></div>
+              <div class="wheel-inner"></div>
+              <div class="wheel-center">
+                <div class="center-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17 3L21 7M21 3L17 7M3 17L7 21M7 17L3 21M14 16L12 21L10 16M16 10L21 12L16 14M8 14L3 12L8 10M10 8L12 3L14 8"
+                      stroke="white"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
                 </div>
-            </div>
+              </div>
 
-            <div id="contacts" class="page">
-                <div class="contact">
-                    <img src="" alt=""/> 
-                    <a></a>
+              <!-- Circular segments -->
+              <div class="feature-segments">
+                <div class="feature-segment segment-1" data-angle="0">
+                  <div class="segment-content">
+                    <div class="segment-icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <div class="segment-label">KOTLIN</div>
+                  </div>
                 </div>
+                <div class="feature-segment segment-2" data-angle="60">
+                  <div class="segment-content">
+                    <div class="segment-icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V4C20 2.89543 19.1046 2 18 2H16"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M12 17V11"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M12 8.01L12.01 7.99889"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <div class="segment-label">PYTHON</div>
+                  </div>
+                </div>
+                <div class="feature-segment segment-3 active" data-angle="120">
+                  <div class="segment-content">
+                    <div class="segment-icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M17 3L21 7M21 3L17 7M3 17L7 21M7 17L3 21M14 16L12 21L10 16M16 10L21 12L16 14M8 14L3 12L8 10M10 8L12 3L14 8"
+                          stroke="#333333"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <div class="segment-label">ANDROID</div>
+                  </div>
+                </div>
+                <div class="feature-segment segment-4" data-angle="180">
+                  <div class="segment-content">
+                    <div class="segment-icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 18V15"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M12 12V12.01"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M12 9V6"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="1.5" />
+                      </svg>
+                    </div>
+                    <div class="segment-label">COMPOSE</div>
+                  </div>
+                </div>
+                <div class="feature-segment segment-5" data-angle="240">
+                  <div class="segment-content">
+                    <div class="segment-icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M20 7H4C2.89543 7 2 7.89543 2 9V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V9C22 7.89543 21.1046 7 20 7Z"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M16 14C16 15.1046 15.1046 16 14 16C12.8954 16 12 15.1046 12 14C12 12.8954 12.8954 12 14 12C15.1046 12 16 12.8954 16 14Z"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M18 7V4C18 2.89543 17.1046 2 16 2H8C6.89543 2 6 2.89543 6 4V7"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <div class="segment-label">BOTS</div>
+                  </div>
+                </div>
+                <div class="feature-segment segment-6" data-angle="300">
+                  <div class="segment-content">
+                    <div class="segment-icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M16 12L8 12"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M13 15L15.913 12.087V12.087C15.961 12.039 15.961 11.961 15.913 11.913V11.913L13 9"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <circle cx="12" cy="12" r="9" stroke="white" stroke-width="1.5" />
+                      </svg>
+                    </div>
+                    <div class="segment-label">CLEAN ARCH</div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </main>
-        <footer>
+          </div>
+        </div>
+      </div>
+      <a href="#reviews" class="scroll-down">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 5L12 19"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M19 12L12 19L5 12"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    </section>
 
-        </footer>
-    </body>
+    <section id="reviews" class="reviews section">
+      <div class="container">
+        <h2>WHAT'S GREEN NOW</h2>
+        <div class="project-container">
+          <div class="project-card">
+            <div class="project-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 7V12L16 16M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21Z"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h3>Working on</h3>
+            <p class="project-title">WHAT-Schedule</p>
+            <p class="project-description">
+              Android scheduling application built with Jetpack Compose
+            </p>
+            <a href="https://github.com/topanim/WHAT-Schedule-android.git" class="project-link"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <div class="project-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 6.25278V19.2528M12 6.25278C10.8321 5.47686 9.24649 5 7.5 5C5.75351 5 4.16789 5.47686 3 6.25278V19.2528C4.16789 18.4769 5.75351 18 7.5 18C9.24649 18 10.8321 18.4769 12 19.2528M12 6.25278C13.1679 5.47686 14.7535 5 16.5 5C18.2465 5 19.8321 5.47686 21 6.25278V19.2528C19.8321 18.4769 18.2465 18 16.5 18C14.7535 18 13.1679 18.4769 12 19.2528"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h3>Learning</h3>
+            <p class="project-title">Android & Jetpack Compose</p>
+            <p class="project-description">
+              Building modern Android applications with declarative UI
+            </p>
+          </div>
+          <div class="project-card">
+            <div class="project-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 15V17M6 21H18C19.1046 21 20 20.1046 20 19V5C20 3.89543 19.1046 3 18 3H6C4.89543 3 4 3.89543 4 5V19C4 20.1046 4.89543 21 6 21ZM16 10.5C16 11.8807 14.2091 13 12 13C9.79086 13 8 11.8807 8 10.5C8 9.11929 9.79086 8 12 8C14.2091 8 16 9.11929 16 10.5Z"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <h3>Signature Code</h3>
+            <pre class="code-block">
+object GreenDev {
+    val skills = listOf(
+        Skill.ANDROID,
+        Skill.BOTS,
+        Skill.CLEAN_ARCH
+    )
+
+    fun buildProject() = lifecycleScope.launch {
+        viewModelScope.emit(State.Success)
+        Timber.d("${🌱} Feature shipped!")
+    }</pre
+            >
+          </div>
+        </div>
+      </div>
+      <a href="#cta" class="scroll-down">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 5L12 19"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M19 12L12 19L5 12"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    </section>
+
+    <section id="cta" class="cta section">
+      <div class="orbital-system">
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="orbit orbit-3"></div>
+        <div class="orbital-moon">
+          <img src="images/moon.svg" alt="Orbital Moon" />
+        </div>
+      </div>
+
+      <div class="container">
+        <h2>LET'S GROW TOGETHER</h2>
+        <p>Connect with me on these platforms</p>
+        <div class="discord-card">
+          <div class="profile-header">
+            <div class="profile-banner">
+              <img src="images/profile-banner.jpg" alt="Profile Banner" />
+            </div>
+          </div>
+          <div class="profile-body">
+            <div class="profile-avatar">
+              <img src="images/profile-avatar.jpg" alt="whatrushik" />
+            </div>
+            <div class="profile-info">
+              <h4>whatrushik</h4>
+              <div class="profile-username">.whatrushik <span class="badge">K</span></div>
+            </div>
+            <div class="profile-quote">
+              <p>🌿 Write code that's as clean as a forest after rain.</p>
+            </div>
+            <div class="profile-graph">
+              <svg viewBox="0 0 300 60" width="100%" height="60">
+                <path
+                  d="M0,30 C25,50 50,10 75,30 C100,50 125,10 150,30 C175,50 200,20 225,10 C250,0 275,20 300,30"
+                  stroke="white"
+                  stroke-width="2"
+                  fill="none"
+                />
+              </svg>
+            </div>
+            <div class="social-links-grid">
+              <a href="https://vk.com/whatrushik" class="social-button vk">VK</a>
+              <a
+                href="https://discordapp.com/users/694977590468804661"
+                class="social-button discord"
+                >Discord</a
+              >
+              <a href="https://t.me/whatrushik" class="social-button telegram">Telegram</a>
+              <a href="mailto:gorogannisan641@gmail.com" class="social-button email">Email</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wave-mountains">
+        <svg viewBox="0 0 900 100" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0,60 C50,20 100,80 150,60 C200,40 250,80 300,60 C350,40 400,80 450,60 C500,40 550,80 600,60 C650,40 700,80 750,60 C800,40 850,80 900,60 L900,100 L0,100 Z"
+          />
+        </svg>
+      </div>
+      <a href="#footer" class="scroll-down">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 5L12 19"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M19 12L12 19L5 12"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    </section>
+
+    <footer id="footer" class="section">
+      <div class="container">
+        <h3>github stats</h3>
+        <div class="github-stats">
+          <div class="stat-card">
+            <h4>Main Skills</h4>
+            <div class="stat-content">
+              <div class="stat-bar" style="width: 85%">Kotlin</div>
+              <div class="stat-bar" style="width: 70%">Python</div>
+              <div class="stat-bar" style="width: 65%">JavaScript</div>
+              <div class="stat-bar" style="width: 60%">PostgreSQL</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <h4>Frameworks</h4>
+            <div class="stat-content">
+              <div class="stat-bar" style="width: 80%">Jetpack Compose</div>
+              <div class="stat-bar" style="width: 75%">Disnake</div>
+              <div class="stat-bar" style="width: 70%">Aiogram</div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">©2024 whatrushik</div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
