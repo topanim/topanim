@@ -489,16 +489,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // New Toolkit Terminal Functionality
   function initializeToolkitTerminal() {
-    const toolkitColumn = document.querySelector('.features-row .feature-column:nth-child(1)'); // Assuming toolkit is in the FIRST column now
+    console.log('[Toolkit] Initializing terminal...'); // Log 1
+    const toolkitColumn = document.querySelector('.features-row .feature-column:nth-child(1)');
     if (!toolkitColumn) {
-      console.error('Toolkit column not found. Tried .features-row .feature-column:nth-child(1)');
+      console.error('[Toolkit] Column (.features-row .feature-column:nth-child(1)) not found.');
       return;
     }
+    console.log('[Toolkit] Column found:', toolkitColumn); // Log 2
+
     const toolsBox = toolkitColumn.querySelector('.tools-box');
     if (!toolsBox) {
-      console.error('Toolkit box (.tools-box) not found in the column.');
+      console.error('[Toolkit] Box (.tools-box) not found in column.');
       return;
     }
+    console.log('[Toolkit] Tools box found:', toolsBox); // Log 3
 
     toolsBox.innerHTML = ''; // Clear existing content
 
@@ -789,29 +793,43 @@ document.addEventListener('DOMContentLoaded', function () {
 
       typeNextCharacter();
     }
-    const featuresSection = document.getElementById('features');
     let terminalStarted = false;
 
-    if (featuresSection) {
+    // Observe the toolsBox directly
+    if (toolsBox) {
+      console.log(
+        '[Toolkit] Tools box found. Setting up IntersectionObserver directly on toolsBox.',
+      );
       const observer = new IntersectionObserver(
         (entries) => {
+          console.log('[Toolkit] IntersectionObserver callback triggered (observing toolsBox).');
           entries.forEach((entry) => {
+            console.log(
+              '[Toolkit] toolsBox Observer entry: isIntersecting? ',
+              entry.isIntersecting,
+              'target:',
+              entry.target,
+            );
             if (entry.isIntersecting && !terminalStarted) {
-              const rect = toolsBox.getBoundingClientRect();
-              // Check if the toolsBox itself is also somewhat in view
-              if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                typeLine();
-                terminalStarted = true;
-                // observer.unobserve(featuresSection); // Optionally stop observing
-              }
+              console.log('[Toolkit] toolsBox is intersecting, starting typeLine().');
+              typeLine();
+              terminalStarted = true;
+              observer.unobserve(entry.target); // Stop observing once started
+            } else if (!entry.isIntersecting && terminalStarted) {
+              // Optional: Handle if it scrolls out of view after starting, though unobserve prevents re-trigger
+              console.log('[Toolkit] toolsBox scrolled out of view after starting.');
             }
           });
         },
         { threshold: 0.1 },
-      ); // Trigger when 10% of features section is visible
-      observer.observe(featuresSection);
+      ); // Trigger when 10% of toolsBox is visible
+      observer.observe(toolsBox);
     } else {
-      typeLine(); // Fallback if features section isn't found
+      // This case should have been caught earlier by the toolsBox check, but as a fallback:
+      console.warn(
+        '[Toolkit] Tools box somehow not found for observer, attempting to start typeLine() immediately.',
+      );
+      typeLine();
     }
   }
 
