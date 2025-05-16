@@ -178,7 +178,7 @@ h2::after {
 .hero-moon {
   position: absolute;
   top: 50px;
-  left: 80px;
+  left: 3vw;
   width: 80px;
   height: 80px;
   z-index: 2;
@@ -280,6 +280,11 @@ h2::after {
   position: relative;
 }
 
+/* Target the first feature column specifically for vertical centering of its content */
+.features-row .feature-column:nth-child(1) {
+  /* justify-content: center; NO - this centers the subtitle too */
+}
+
 .section-subtitle {
   font-size: 1.8rem;
   text-align: center;
@@ -303,19 +308,20 @@ h2::after {
 
 /* Tools Box */
 .tools-box {
-  padding: 30px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 16px;
-  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  text-align: left;
   border: 1px solid var(--card-border);
   width: 100%;
-  height: 100%;
+  height: 350px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
   transition: all 0.3s ease;
   position: relative;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
@@ -327,7 +333,8 @@ h2::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 30% 30%, rgba(139, 195, 74, 0.05) 0%, transparent 70%);
+  /* Adjusted gradient for a more subtle effect if desired, or remove if too distracting */
+  background: radial-gradient(circle at 10% 10%, rgba(139, 195, 74, 0.03) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -337,56 +344,98 @@ h2::after {
   border-color: var(--card-hover-border);
 }
 
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 15px;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.tool {
-  position: relative;
-  padding: 15px 10px;
-  background-color: rgba(139, 195, 74, 0.1);
-  border: 1px solid rgba(139, 195, 74, 0.3);
-  border-radius: 12px;
+/* New Terminal Styles */
+#toolkit-terminal {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  color: #00ff00; /* Classic green terminal text */
+  white-space: pre-wrap; /* Allow wrapping, important for long lines */
+  word-break: break-all; /* Break words if they are too long */
   font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--green-light);
-  transition: all 0.3s ease;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  min-height: 60px;
+  line-height: 1.5; /* Adjusted line height */
+  text-align: left;
+  width: 100%;
+  height: 100%; /* Fill the tools-box */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-.tool::before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(139, 195, 74, 0.2);
-  border-radius: 50%;
-  transform: scale(0);
-  transition: all 0.5s ease;
+#toolkit-terminal span {
+  /* Base for inline elements within pre */
+  display: inline; /* Keep spans inline */
 }
 
-.tool:hover {
-  background-color: rgba(139, 195, 74, 0.15);
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+#toolkit-terminal .prompt {
+  color: #00ff00; /* Green prompt */
+  margin-right: 5px; /* Space after prompt */
 }
 
-.tool:hover::before {
-  transform: scale(4);
-  opacity: 0.3;
+#toolkit-terminal .command-text {
+  color: #e0e0e0; /* Lighter color for typed commands */
+}
+
+#toolkit-terminal .output-line {
+  color: #e0e0e0; /* Default output color */
+}
+
+#toolkit-terminal .info-line {
+  color: #9e9e9e; /* Greyer for general info */
+}
+
+#toolkit-terminal .terminal-tool-name {
+  color: #ffd700; /* Gold color for tool names */
+  font-weight: bold;
+}
+
+/* Styles for Character-Based Progress Bar */
+#toolkit-terminal .progress-bar-char-line {
+  /* For the line container of the character bar, if specific styling needed */
+  /* e.g., padding-left: 1em; for indentation */
+}
+
+#toolkit-terminal .progress-bar-char-indent {
+  margin-right: 5px; /* Space for an indent if we add one via JS */
+}
+
+#toolkit-terminal .progress-bar-char-filled {
+  color: var(--green-light); /* Color for the filled part of the bar */
+}
+
+#toolkit-terminal .progress-bar-char-empty {
+  color: #555; /* Dark grey for the empty part */
+}
+
+#toolkit-terminal .progress-bar-char-percent {
+  color: #00ff00; /* Bright green for the percentage text */
+  margin-left: 8px;
+  font-size: 0.9em;
+}
+
+#toolkit-terminal .progress-char-status-ok {
+  color: #32cd32; /* LimeGreen for OK status */
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+/* Remove or ensure .progress-bar-text is no longer used or repurposed */
+/* .progress-bar-text { ... } */
+
+.blinking-cursor {
+  animation: blink 1s step-end infinite;
+  color: #00ff00; /* Match terminal text color */
+  display: inline-block; /* So it takes space */
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* Projects */
@@ -962,8 +1011,34 @@ footer h3::after {
 /* Clip-path for wedge shape - dynamically set by JS */
 
 .feature-segment:hover {
-  background-color: rgba(55, 55, 55, 0.85); /* Subtle hover brightness */
-  /* No transform on hover to avoid conflict with selection click */
+  background-color: var(--green-light); /* Green on hover */
+  z-index: 5;
+  /* Transform is applied by JS instead of here */
+}
+
+.feature-segment:hover .segment-content {
+  color: var(--dark-bg);
+}
+
+.feature-segment:hover .segment-icon svg path,
+.feature-segment:hover .segment-icon svg circle {
+  stroke: var(--dark-bg);
+}
+
+/* Move segment selection styles to hover instead */
+.feature-segment.segment-selected {
+  /* No background-color here anymore, it's on hover */
+  z-index: 5;
+  /* Transform applied by JS */
+}
+
+.feature-segment.segment-selected .segment-content {
+  /* No color change on selection, only on hover */
+}
+
+.feature-segment.segment-selected .segment-icon svg path,
+.feature-segment.segment-selected .segment-icon svg circle {
+  /* No stroke change on selection, only on hover */
 }
 
 .segment-content {
@@ -1001,21 +1076,6 @@ footer h3::after {
   letter-spacing: 0.5px;
   line-height: 1.2;
   transition: color 0.3s ease;
-}
-
-.feature-segment.segment-selected {
-  background-color: var(--green-light); /* Highlight color for selected */
-  z-index: 5;
-  /* Transform (scale & radial translate) applied by JS */
-}
-
-.feature-segment.segment-selected .segment-content {
-  color: var(--dark-bg);
-}
-
-.feature-segment.segment-selected .segment-icon svg path,
-.feature-segment.segment-selected .segment-icon svg circle {
-  stroke: var(--dark-bg);
 }
 
 /* Removing old wheel styles no longer needed */

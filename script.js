@@ -174,14 +174,20 @@ document.addEventListener('DOMContentLoaded', function () {
       // Position content
       const content = segment.querySelector('.segment-content');
       if (content) {
-        // Counter-rotate content to be upright
-        const contentCounterRotationDeg = -segmentRotationStartDeg;
-        // Then, to align it nicely within the wedge, add half of segment angle back, adjusted by 90deg for text flow
-        const contentAlignmentRotationDeg = -(anglePerSegmentDeg / 2) + 90;
-        const finalContentRotation = contentCounterRotationDeg + contentAlignmentRotationDeg;
+        const finalContentRotation = -segmentRotationStartDeg; // Make it upright
+
+        // Position the content block.
+        // 'left: 45%' and 'translateX(-50%)' in transform will center it horizontally.
+        // This is shifted left from 50% to better suit the wedge shape.
+        content.style.left = '65%';
+
+        // 'top: 35%' will position the content's center 35% down from the top of the segment's square area.
+        // This moves it further inward compared to 20%.
+        // Adjust this value if needed (e.g., 30% for slightly more outward, 40% for slightly more inward).
+        content.style.top = '25%';
 
         content.style.transformOrigin = 'center center';
-        content.style.transform = `rotate(${finalContentRotation}deg) translateY(-65%) translateX(0%)`;
+        content.style.transform = `translateX(-50%) rotate(${finalContentRotation}deg)`;
       }
     });
   };
@@ -189,13 +195,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const updateSegmentAppearance = (segmentToHighlight, isTrulySelected) => {
     featureSegments.forEach((seg, idx) => {
       const isCurrentlyConsidered = seg === segmentToHighlight;
-      seg.classList.toggle('segment-selected', isCurrentlyConsidered && isTrulySelected); // True selection style
-      seg.classList.toggle('segment-hovered', isCurrentlyConsidered && !isTrulySelected); // Hover style if not truly selected
+      seg.classList.toggle('segment-selected', isCurrentlyConsidered); // Always apply selected style on hover
+      seg.classList.toggle('segment-hovered', false); // Don't use separate hover style
 
       const paths = seg.querySelectorAll('.segment-icon svg path, .segment-icon svg circle');
       const label = seg.querySelector('.segment-label');
-      const color =
-        isCurrentlyConsidered && isTrulySelected ? 'var(--dark-bg)' : 'var(--text-color)';
+      const color = isCurrentlyConsidered ? 'var(--dark-bg)' : 'var(--text-color)';
       paths.forEach((p) => p.setAttribute('stroke', color));
       if (label) label.style.color = color;
 
@@ -203,15 +208,6 @@ document.addEventListener('DOMContentLoaded', function () {
       let scale = defaultScale;
       let radialTranslateY = 0; // For radial extrusion
 
-      if (isCurrentlyConsidered && isTrulySelected) {
-        // Full effect for true selection
-        scale = selectedScale;
-        radialTranslateY = -extrusionAmount; // Negative Y is outwards in local rotated space
-      } else if (isCurrentlyConsidered && !isTrulySelected) {
-        // Subtle scale for hover
-        scale = 1.05; // Slight scale on hover only
-        radialTranslateY = -5; // Slight extrusion on hover
-      }
       // Apply transform: rotate first, then translate in its new orientation, then scale from its center
       seg.style.transformOrigin = '100% 100%'; // Keep origin at wheel center for rotation and scale
       seg.style.transform = `rotate(${segmentRotationStartDeg}deg) translateY(${radialTranslateY}px) scale(${scale})`;
@@ -307,19 +303,18 @@ document.addEventListener('DOMContentLoaded', function () {
   // Add click events to segments
   featureSegments.forEach((segment) => {
     segment.addEventListener('mouseenter', () => {
-      updateSegmentAppearance(segment, false); // Apply hover appearance
+      updateSegmentAppearance(segment, true); // Apply full selected appearance on hover
     });
     segment.addEventListener('click', () => {
-      // Click makes it truly selected
+      // We'll keep this for keyboard navigation compatibility
       activeSegmentByClickOrKey = segment;
-      updateSegmentAppearance(segment, true);
     });
   });
 
   if (featureWheel) {
     featureWheel.addEventListener('mouseleave', () => {
-      // When mouse leaves the wheel, revert to the last clicked/keyed segment or default
-      updateSegmentAppearance(activeSegmentByClickOrKey || defaultSegment, true);
+      // When mouse leaves the wheel, revert to no selection
+      updateSegmentAppearance(null, false);
     });
   }
 
@@ -340,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     musicBtn.addEventListener('click', function () {
       if (!audioCreated) {
-        audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+        audio = new Audio('./music/background.mp3');
         audio.loop = true;
         audio.volume = 0.1;
         audioCreated = true;
@@ -491,4 +486,334 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     requestAnimationFrame(animateGradient);
   }
+
+  // New Toolkit Terminal Functionality
+  function initializeToolkitTerminal() {
+    const toolkitColumn = document.querySelector('.features-row .feature-column:nth-child(1)'); // Assuming toolkit is in the FIRST column now
+    if (!toolkitColumn) {
+      console.error('Toolkit column not found. Tried .features-row .feature-column:nth-child(1)');
+      return;
+    }
+    const toolsBox = toolkitColumn.querySelector('.tools-box');
+    if (!toolsBox) {
+      console.error('Toolkit box (.tools-box) not found in the column.');
+      return;
+    }
+
+    toolsBox.innerHTML = ''; // Clear existing content
+
+    const terminalOutput = document.createElement('pre');
+    terminalOutput.id = 'toolkit-terminal';
+    toolsBox.appendChild(terminalOutput);
+
+    const toolkitData = [
+      { type: 'command', text: 'Initializing Development Toolkit v2.1...' },
+      { type: 'info', text: '[INFO] Detected OS: win32, Arch: x64' }, // Example, not dynamic
+      { type: 'info', text: '[INFO] Verifying component integrity...' },
+
+      {
+        type: 'progress',
+        toolName: 'Jetpack Compose',
+        version: '1.7.2',
+        task: 'Configuring Android SDK & Gradle',
+        finalProgress: 100,
+      },
+      {
+        type: 'progress',
+        toolName: 'Kotlin Multiplatform',
+        version: '1.9.23',
+        task: 'Setting up KMP environment',
+        finalProgress: 100,
+      },
+      {
+        type: 'progress',
+        toolName: 'Python Environment',
+        version: '3.11.7',
+        task: 'Creating virtual environment (venv)',
+        finalProgress: 100,
+      },
+      {
+        type: 'progress',
+        toolName: 'Node.js Runtimes',
+        version: 'v20.11.1',
+        task: 'Installing core NPM packages',
+        finalProgress: 100,
+      },
+      {
+        type: 'progress',
+        toolName: 'Swift Toolchain',
+        version: '5.9',
+        task: 'Linking Xcode & Swift build tools',
+        finalProgress: 100,
+      },
+      {
+        type: 'progress',
+        toolName: 'PostgreSQL Database',
+        version: '16.2',
+        task: 'Initializing data directory',
+        finalProgress: 100,
+      },
+      {
+        type: 'progress',
+        toolName: 'Container Engine',
+        version: 'Docker 25.0.3',
+        task: 'Starting Docker daemon',
+        finalProgress: 100,
+      },
+
+      { type: 'info', text: '[SUCCESS] All components initialized.' },
+      { type: 'command', text: 'Toolkit ready. Launching primary interface...' },
+    ];
+
+    let lineIndex = 0;
+    let charIndex = 0;
+    const typingSpeed = 30;
+    const lineDelay = 200;
+    const textProgressAnimationDurationPerPercent = 20; // ms per percent for total animation time
+    const textProgressUpdateInterval = 100; // ms for spinner/dot update
+
+    let currentLineElement = null;
+    let currentTextSpan = null;
+    let currentProgressAnimatorSpan = null;
+    let isBarAnimationActive = false; // True ONLY when the character bar is animating
+
+    function addBlinkingCursor(terminalElement) {
+      let cursorSpan = terminalElement.querySelector('.blinking-cursor');
+      if (cursorSpan) cursorSpan.remove(); // Remove old one if exists
+
+      cursorSpan = document.createElement('span');
+      cursorSpan.classList.add('blinking-cursor');
+      cursorSpan.textContent = '▋';
+
+      const lastLineContainer = terminalOutput.querySelector('.line-container:last-child');
+      if (lastLineContainer) {
+        const lastTextElement =
+          lastLineContainer.querySelector('span:not(.prompt):last-of-type') ||
+          lastLineContainer.querySelector('.prompt');
+        if (lastTextElement) {
+          lastTextElement.appendChild(cursorSpan);
+        } else {
+          lastLineContainer.appendChild(cursorSpan);
+        }
+      } else {
+        const newLineContainer = document.createElement('span');
+        newLineContainer.classList.add('line-container');
+        terminalElement.appendChild(newLineContainer);
+        newLineContainer.appendChild(cursorSpan);
+      }
+      terminalElement.scrollTop = terminalOutput.scrollHeight;
+    }
+
+    function typeNextCharacter() {
+      if (!currentLineElement || !currentTextSpan) return;
+
+      const currentLineData = toolkitData[lineIndex];
+      let textToType = '';
+
+      if (currentLineData.type === 'command' || currentLineData.type === 'info') {
+        textToType = currentLineData.text;
+      } else if (currentLineData.type === 'progress') {
+        // This is for the descriptive text part. Bar animation is not yet active.
+        textToType = `${currentLineData.toolName} (${currentLineData.version}): ${currentLineData.task}... `;
+      }
+
+      if (charIndex < textToType.length) {
+        currentTextSpan.textContent += textToType.charAt(charIndex);
+        charIndex++;
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        setTimeout(typeNextCharacter, typingSpeed);
+      } else {
+        // Text typing for the current visual line is complete
+        if (currentLineData.type === 'progress' && !isBarAnimationActive) {
+          // Just finished typing the descriptive line for a progress item.
+          // Now, prepare for and start the bar animation.
+          isBarAnimationActive = true; // LOCK for bar animation phase
+
+          let fullTypedText = currentTextSpan.textContent;
+          const toolNameAndVersion = `${currentLineData.toolName} (${currentLineData.version})`;
+          if (fullTypedText.includes(toolNameAndVersion)) {
+            fullTypedText = fullTypedText.replace(
+              toolNameAndVersion,
+              `<span class="terminal-tool-name">${toolNameAndVersion}</span>`,
+            );
+          } else if (fullTypedText.includes(currentLineData.toolName)) {
+            fullTypedText = fullTypedText.replace(
+              currentLineData.toolName,
+              `<span class="terminal-tool-name">${currentLineData.toolName}</span>`,
+            );
+          }
+          currentTextSpan.innerHTML = fullTypedText;
+
+          animateTextProgress(); // This will create a new line for the bar and call finishLine when done.
+        } else if (currentLineData.type !== 'progress') {
+          // This is for command or info types finishing.
+          // isBarAnimationActive is false here.
+          finishLine();
+        }
+        // If currentLineData.type === 'progress' AND isBarAnimationActive is true, it means animateTextProgress
+        // is currently running. We do nothing here; animateTextProgress will call finishLine upon its completion.
+      }
+    }
+
+    function animateTextProgress() {
+      const currentLineData = toolkitData[lineIndex];
+
+      const progressLineElement = document.createElement('span');
+      progressLineElement.classList.add('line-container', 'progress-bar-char-line');
+
+      const indentSpan = document.createElement('span');
+      indentSpan.className = 'progress-bar-char-indent';
+      indentSpan.textContent = '  ↳ ';
+      progressLineElement.appendChild(indentSpan);
+
+      currentProgressAnimatorSpan = document.createElement('span');
+      progressLineElement.appendChild(currentProgressAnimatorSpan);
+
+      terminalOutput.appendChild(progressLineElement);
+      terminalOutput.appendChild(document.createTextNode('\n'));
+      terminalOutput.scrollTop = terminalOutput.scrollHeight;
+
+      const barLength = 25;
+      const fillChar = '█';
+      const emptyChar = '░';
+      let progressTimeElapsed = 0;
+      const totalAnimationTime =
+        currentLineData.finalProgress * textProgressAnimationDurationPerPercent;
+
+      const intervalId = setInterval(() => {
+        progressTimeElapsed += textProgressUpdateInterval;
+
+        // Calculate the percentage of the *task* that should be shown as completed
+        let effectiveTaskPercent =
+          (progressTimeElapsed / totalAnimationTime) * currentLineData.finalProgress;
+        effectiveTaskPercent = Math.min(effectiveTaskPercent, currentLineData.finalProgress); // Cap at finalProgress
+        effectiveTaskPercent = Math.max(0, Math.floor(effectiveTaskPercent)); // Ensure it's not negative and is an integer
+
+        let filledCount = Math.round((effectiveTaskPercent / 100) * barLength);
+
+        // When the animation time is complete, ensure the bar and percentage reflect the exact finalProgress
+        if (progressTimeElapsed >= totalAnimationTime) {
+          effectiveTaskPercent = currentLineData.finalProgress;
+          filledCount = Math.round((currentLineData.finalProgress / 100) * barLength);
+        }
+
+        const emptyCount = barLength - filledCount;
+
+        currentProgressAnimatorSpan.innerHTML = '';
+
+        const filledSpan = document.createElement('span');
+        filledSpan.className = 'progress-bar-char-filled';
+        filledSpan.textContent = fillChar.repeat(filledCount);
+        currentProgressAnimatorSpan.appendChild(filledSpan);
+
+        const emptySpan = document.createElement('span');
+        emptySpan.className = 'progress-bar-char-empty';
+        emptySpan.textContent = emptyChar.repeat(emptyCount);
+        currentProgressAnimatorSpan.appendChild(emptySpan);
+
+        const percentTextSpan = document.createElement('span');
+        percentTextSpan.className = 'progress-bar-char-percent';
+        percentTextSpan.textContent = ` ${effectiveTaskPercent}%`; // Display the calculated effective task percent
+        currentProgressAnimatorSpan.appendChild(percentTextSpan);
+
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+
+        if (progressTimeElapsed >= totalAnimationTime) {
+          clearInterval(intervalId);
+          const statusOk = document.createElement('span');
+          statusOk.className = 'progress-char-status-ok';
+          statusOk.textContent = ' [DONE]';
+          currentProgressAnimatorSpan.appendChild(statusOk);
+
+          isBarAnimationActive = false;
+          finishLine();
+        }
+      }, textProgressUpdateInterval);
+    }
+
+    function finishLine() {
+      lineIndex++; // A complete toolkitData item (command, info, or progress with its bar) is done.
+
+      charIndex = 0;
+      currentLineElement = null;
+      currentTextSpan = null;
+      currentProgressAnimatorSpan = null;
+      // isBarAnimationActive should be false here, reset by animateTextProgress if it was the caller.
+
+      if (lineIndex < toolkitData.length) {
+        setTimeout(typeLine, lineDelay);
+      } else {
+        addBlinkingCursor(terminalOutput);
+      }
+    }
+
+    function typeLine() {
+      if (lineIndex >= toolkitData.length) {
+        addBlinkingCursor(terminalOutput);
+        return;
+      }
+
+      const existingCursor = terminalOutput.querySelector('.blinking-cursor');
+      if (existingCursor) existingCursor.remove();
+
+      currentLineElement = document.createElement('span');
+      currentLineElement.classList.add('line-container');
+
+      const currentLineData = toolkitData[lineIndex];
+      charIndex = 0;
+      // Do NOT set isBarAnimationActive here. It's managed by typeNextCharacter/animateTextProgress.
+
+      if (currentLineData.type === 'command') {
+        const promptSpan = document.createElement('span');
+        promptSpan.className = 'prompt';
+        promptSpan.textContent = '> ';
+        currentLineElement.appendChild(promptSpan);
+        currentTextSpan = document.createElement('span');
+        currentTextSpan.className = 'command-text';
+        currentLineElement.appendChild(currentTextSpan);
+      } else if (currentLineData.type === 'info') {
+        currentTextSpan = document.createElement('span');
+        currentTextSpan.className = 'info-line';
+        currentLineElement.appendChild(currentTextSpan);
+      } else if (currentLineData.type === 'progress') {
+        // This visual line is for the descriptive text.
+        // isBarAnimationActive is currently false when starting the description.
+        currentTextSpan = document.createElement('span');
+        currentTextSpan.className = 'output-line';
+        currentLineElement.appendChild(currentTextSpan);
+      }
+
+      terminalOutput.appendChild(currentLineElement);
+      terminalOutput.appendChild(document.createTextNode('\n'));
+      terminalOutput.scrollTop = terminalOutput.scrollHeight;
+
+      typeNextCharacter();
+    }
+    const featuresSection = document.getElementById('features');
+    let terminalStarted = false;
+
+    if (featuresSection) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !terminalStarted) {
+              const rect = toolsBox.getBoundingClientRect();
+              // Check if the toolsBox itself is also somewhat in view
+              if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                typeLine();
+                terminalStarted = true;
+                // observer.unobserve(featuresSection); // Optionally stop observing
+              }
+            }
+          });
+        },
+        { threshold: 0.1 },
+      ); // Trigger when 10% of features section is visible
+      observer.observe(featuresSection);
+    } else {
+      typeLine(); // Fallback if features section isn't found
+    }
+  }
+
+  initializeToolkitTerminal(); // Call the function to set up the toolkit terminal
 });
