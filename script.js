@@ -1,5 +1,16 @@
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
+  // --- Global Variables for Satellite Animation ---
+  const orbitingSatelliteElement = document.querySelector('.orbiting-satellite');
+  let satelliteAngle = Math.random() * 360; // degrees
+  let satelliteOrbitRadiusVh = 80; // Vh for desktop, will be adjusted for mobile
+  let satelliteBaseSpeed = 0.02; // degrees per frame
+  let satelliteFastSpeedMultiplier = 100;
+  let orbitCenterX = window.innerWidth / 2; // Initial orbit center X (pixels)
+  let orbitCenterY = window.innerHeight / 2; // Initial orbit center Y (pixels)
+  // Note: orbitCenterX/Y will be updated when features section is active
+  // --- End Global Variables for Satellite Animation ---
+
   // Page Navigation functionality
   const sections = document.querySelectorAll('.section');
   const navLinks = document.querySelectorAll('.page-nav a');
@@ -24,28 +35,42 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentSectionId = '';
     let minDistance = Infinity;
 
-    // Handle orbital system animation based on features section visibility
     const orbitalSystem = document.querySelector('.orbital-system');
     const featuresSection = document.getElementById('features');
-    if (orbitalSystem && featuresSection) {
+    const featureWheel = document.querySelector('.feature-wheel');
+
+    if (orbitalSystem && featuresSection && featureWheel) {
       const featuresRect = featuresSection.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      // Target top for orbital system when features section is centered
-      // We want the center of the orbital system to align with where the feature wheel is.
-      // Feature wheel is roughly centered in its column, which is centered in features section.
-      // Let's aim for the orbital system's center (which is its 50% vh/vw mark) to be at viewport's 50%.
-      // The feature wheel is a bit lower due to title, so adjust target accordingly.
-      // Initial state is top: -20vh (set in CSS)
-      const targetOrbitalTop = '-20vh'; // Adjust this value to perfectly center with wheel
-      const initialOrbitalTop = '38vh'; // Must match CSS
-      orbitalSystem.style.left = '110vh';
+      const windowWidth = window.innerWidth;
+      const targetOrbitalTop = '-20vh';
+      const initialOrbitalTop = '38vh';
 
-      // Check if features section is significantly in view
       if (featuresRect.top < windowHeight * 0.75 && featuresRect.bottom > windowHeight * 0.25) {
         orbitalSystem.style.top = targetOrbitalTop;
+        const wheelRect = featureWheel.getBoundingClientRect();
+        const wheelCenterX = wheelRect.left + wheelRect.width / 2;
+        const shiftPx = wheelCenterX - windowWidth / 2;
+        orbitalSystem.style.left = `calc(50% + ${shiftPx}px)`;
       } else {
         orbitalSystem.style.top = initialOrbitalTop;
+        orbitalSystem.style.left = '50%';
       }
+
+      // Update global orbitCenterX, orbitCenterY based on .orbital-system's current state
+      // Ensure this runs after .top and .left are set for orbitalSystem
+      // Use getBoundingClientRect for robust viewport-relative coordinates of the orbital system's center
+      const orbitalSystemRect = orbitalSystem.getBoundingClientRect();
+      orbitCenterX = orbitalSystemRect.left + orbitalSystemRect.width / 2;
+      orbitCenterY = orbitalSystemRect.top + orbitalSystemRect.height / 2;
+    } else if (orbitalSystem) {
+      // Fallback if features section or wheel not found, center to viewport
+      orbitCenterX = window.innerWidth / 2;
+      // Adjust Y based on some default or current top of orbitalSystem
+      const cs = getComputedStyle(orbitalSystem);
+      let currentTop = parseFloat(cs.top);
+      if (cs.top.includes('vh')) currentTop = (parseFloat(cs.top) / 100) * window.innerHeight;
+      orbitCenterY = currentTop + (parseFloat(cs.height) || (160 / 100) * window.innerHeight) / 2;
     }
 
     sections.forEach((section) => {
@@ -377,8 +402,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Shooting Star Creation
   const createShootingStar = () => {
+    console.log('[Stars] createShootingStar called'); // Add this log
     const starsContainer = document.querySelector('.stars');
-    if (!starsContainer) return;
+    if (!starsContainer) {
+      console.warn('[Stars] .stars container not found!');
+      return;
+    }
 
     const shootingStar = document.createElement('div');
     shootingStar.classList.add('shooting-star');
@@ -438,24 +467,35 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   // Periodically create shooting stars
-  if (document.hasFocus()) {
-    // Only create if tab is active
-    setInterval(createShootingStar, 3000); // Approx every 3 seconds
-  } else {
-    // Could add a listener for window focus to restart interval
+  let shootingStarIntervalId = null;
+  function startShootingStars() {
+    if (shootingStarIntervalId) clearInterval(shootingStarIntervalId); // Clear existing if any
+    console.log('[Stars] Starting shooting star interval.');
+    shootingStarIntervalId = setInterval(createShootingStar, 3000);
+  }
+  function stopShootingStars() {
+    if (shootingStarIntervalId) {
+      console.log('[Stars] Stopping shooting star interval.');
+      clearInterval(shootingStarIntervalId);
+      shootingStarIntervalId = null;
+    }
   }
 
-  // Create orbital animation with optimized calculations
-  const orbitingSatellite = document.querySelector('.orbiting-satellite');
-  if (orbitingSatellite) {
-    // Set random starting position
-    const randomAngle = Math.random() * 360;
-    // Match the translateX to the largest orbit's radius (orbit3: 160vh diameter / 2 = 80vh)
-    orbitingSatellite.style.transform = `rotate(${randomAngle}deg) translateX(80vh) rotate(-${randomAngle}deg)`;
+  if (document.hasFocus()) {
+    startShootingStars();
+  } else {
+    console.log('[Stars] Document does NOT have focus, no shooting stars initially.');
+  }
+  window.addEventListener('focus', startShootingStars);
+  window.addEventListener('blur', stopShootingStars);
 
-    // Use a simple animation for better performance - this is already defined in CSS
-    // Ensure the animation name in CSS is 'orbital-movement'
-    orbitingSatellite.style.animation = `orbital-movement 60s linear infinite`; // Duration can be adjusted
+  // Orbital Animation - Placeholder for JS driven animation
+  // Create orbital animation with optimized calculations
+  // const orbitingSatellite = document.querySelector('.orbiting-satellite'); // Already got orbitingSatelliteElement
+  if (orbitingSatelliteElement) {
+    // Initial random position will be set by the JS animation loop
+    // orbitingSatelliteElement.style.transform = `rotate(${randomAngle}deg) translateX(80vh) rotate(-${randomAngle}deg)`;
+    // CSS animation is removed, JS will handle it.
   }
 
   // Initial update
@@ -834,4 +874,59 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   initializeToolkitTerminal(); // Call the function to set up the toolkit terminal
+
+  // --- Satellite Animation Function ---
+  function animateSatellite() {
+    if (!orbitingSatelliteElement) return;
+
+    const radiusInPixels = (satelliteOrbitRadiusVh / 100) * window.innerHeight;
+
+    // Calculate satellite's position relative to its orbit center (orbitCenterX, orbitCenterY)
+    const satelliteLocalX = Math.cos((satelliteAngle * Math.PI) / 180) * radiusInPixels;
+    const satelliteLocalY = Math.sin((satelliteAngle * Math.PI) / 180) * radiusInPixels;
+
+    // Apply this local position as a transform directly, as the satellite element is already centered by CSS.
+    orbitingSatelliteElement.style.transform = `translate(${satelliteLocalX}px, ${satelliteLocalY}px) rotate(${
+      satelliteAngle + 90
+    }deg)`;
+
+    // For visibility check, calculate satellite's absolute viewport position
+    // orbitCenterX and orbitCenterY are the viewport-relative center of the .orbital-system
+    const satelliteViewportX = orbitCenterX + satelliteLocalX;
+    const satelliteViewportY = orbitCenterY + satelliteLocalY;
+
+    // Visibility Check (approximate, using the center of the satellite)
+    const satelliteWidth = orbitingSatelliteElement.offsetWidth || 60;
+    const satelliteHeight = orbitingSatelliteElement.offsetHeight || 60;
+    let isVisible = true;
+    if (
+      satelliteViewportX + satelliteWidth / 2 < 0 ||
+      satelliteViewportX - satelliteWidth / 2 > window.innerWidth ||
+      satelliteViewportY + satelliteHeight / 2 < 0 ||
+      satelliteViewportY - satelliteHeight / 2 > window.innerHeight
+    ) {
+      isVisible = false;
+    }
+
+    // Update angle for next frame
+    let currentSpeed = isVisible
+      ? satelliteBaseSpeed
+      : satelliteBaseSpeed * satelliteFastSpeedMultiplier;
+    satelliteAngle += currentSpeed;
+    if (satelliteAngle >= 360) satelliteAngle -= 360;
+    if (satelliteAngle < 0) satelliteAngle += 360;
+
+    requestAnimationFrame(animateSatellite);
+  }
+  // --- End Satellite Animation Function ---
+
+  // Call initial updateActiveElements to set initial orbitCenterX/Y
+  updateActiveElements();
+  // Start satellite animation loop
+  if (orbitingSatelliteElement) {
+    console.log('[Satellite] Starting JS animation.');
+    animateSatellite();
+  } else {
+    console.warn('[Satellite] Orbiting satellite element not found, cannot start animation.');
+  }
 });

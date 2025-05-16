@@ -207,6 +207,19 @@ h2::after {
   text-shadow: 0 0 10px rgba(139, 195, 74, 0.5);
 }
 
+/* Responsive Hero Title */
+@media (max-width: 767px) {
+  /* Target typical mobile devices */
+  .hero h1 {
+    font-size: 10vw; /* Scale with viewport width */
+    letter-spacing: 1vw; /* Scale letter spacing */
+    /* Alternatively, a smaller fixed rem value:
+    font-size: 2.5rem;
+    letter-spacing: 3px; 
+    */
+  }
+}
+
 .subtitle {
   max-width: 600px;
   margin: 0 auto 2rem;
@@ -1289,6 +1302,7 @@ footer h3::after {
   margin-left: -30px;
   pointer-events: auto;
   z-index: 0;
+  /* animation: orbital-movement 60s linear infinite; REMOVED */
 }
 
 .orbiting-satellite img {
