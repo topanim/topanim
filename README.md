@@ -7,7 +7,7 @@ _"𝙒𝙧𝙞𝙩𝙚 𝙘𝙤𝙙𝙚 𝙩𝙝𝙖𝙩'𝙨 𝙖𝙨 𝙘𝙡�
 <!-- 🌳🍀🎋🪴🎍🎄🌲🌳🌴🍃🌱🌿☘️ -->
 <!-- ✍️🥷👀🐼🐧🐇🍀🎋🪴🎍🎄🌲🌳🌴🍃🌱🌿☘️🦖🦎🐩🦡🐳🐋🦐🦀🐡🦞⛄️☃️❄️🌩🫧☁️⛅️💫⭐️✨⚡️🌟☄️🔥🍡🍙🍚🥥🍸🍥🍣🎬🎲♟🎱🗻🏔⛰🧩🎯🎫🎟🏆🥇🥈🥉🎖🛟🗿🏝🗺🗽🚧⛩💡💻⏳⏰🧯🔋🪫💰💸🧬⛓️‍💥⛓️🪜🧰🪛🧨🔭💈⚗️💣🛎🎁🎏🎈🪄🎉📌🪩📍🗃📆📊📈📉🤍🔍🔎⚜️◻️📣💬💭🗯❔❕❗️❓‼️⁉️💯 -->
 
-### 🪴 𝙈𝙮 𝙏𝙚𝙘𝙝 𝙂𝙖𝙧𝙙𝙚𝙣
+### 🪴 𝙈𝙮 <!--  𝙏𝙚𝙘𝙝  --> 𝙂𝙖𝙧𝙙𝙚𝙣
 
 [![Kotlin](https://img.shields.io/badge/-Kotlin-purple?logo=kotlin&logoColor=white)](https://kotlinlang.org)
 [![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white)](https://python.org)
@@ -17,6 +17,15 @@ _"𝙒𝙧𝙞𝙩𝙚 𝙘𝙤𝙙𝙚 𝙩𝙝𝙖𝙩'𝙨 𝙖𝙨 𝙘𝙡�
 [![Jetpack Compose](https://img.shields.io/badge/-Jetpack_Compose-green?logo=jetpackcompose&logoColor=white)](https://developer.android.com/compose)
 [![Disnake](https://img.shields.io/badge/-Disnake-3776AB?logo=discord&logoColor=white)](https://disnake.dev/)
 [![Aiogram](https://img.shields.io/badge/-Aiogram-26A5E4?logo=telegram&logoColor=white)](https://aiogram.dev)
+
+<a href="https://www.gitanimals.org/en_US?utm_medium=image&utm_source=topanim&utm_content=farm">
+<img
+  src="https://render.gitanimals.org/farms/topanim"
+  width="600"
+  height="400"
+/>
+</a>
+
 
 ### 🌿 𝙒𝙝𝙖𝙩'𝙨 𝙂𝙧𝙚𝙚𝙣 𝙉𝙤𝙬
 
@@ -50,5 +59,5 @@ object GreenDev {
 
 ---
 
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=topanim&show_icons=true&theme=vue-dark&bg_color=22543D&title_color=8BC34A&icon_color=4CAF50)](https://github.com/yourname)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=topanim&layout=compact&theme=vue-dark&bg_color=22543D&title_color=8BC34A)](https://github.com/yourname)
+[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=topanim&show_icons=true&theme=vue-dark&bg_color=22543D&title_color=8BC34A&icon_color=4CAF50)](https://github.com/topanim)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=topanim&layout=compact&theme=vue-dark&bg_color=22543D&title_color=8BC34A)](https://github.com/topanim)
