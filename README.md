@@ -29,7 +29,7 @@ _"𝙒𝙧𝙞𝙩𝙚 𝙘𝙤𝙙𝙚 𝙩𝙝𝙖𝙩'𝙨 𝙖𝙨 𝙘𝙡�
 
 ### 🌿 𝙒𝙝𝙖𝙩'𝙨 𝙂𝙧𝙚𝙚𝙣 𝙉𝙤𝙬
 
-- 🔭 **Working on:** [𝙒𝙃𝘼𝙏-𝙎𝙘𝙝𝙚𝙙𝙪𝙡𝙚](https://github.com/topanim/WHAT-Schedule-android.git)
+- 🔭 **Working on:** [𝙒𝙃𝘼𝙏-𝙎𝙘𝙝𝙚𝙙𝙪𝙡𝙚](https://github.com/whatrushki/WHAT-Schedule-android.git)
 - ☘️ **Learning:** `Android` & `Jetpack Compose`
 - 🧰 **Tools:** `Koin`, `Ktor`, `Room`, `Kotlin Coroutines`
 
