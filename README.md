@@ -1,63 +1,47 @@
-# 🌱 𝙃𝙚𝙡𝙡𝙤, 𝙄'𝙢 𝙬𝙝𝙖𝙩𝙧𝙪𝙨𝙝𝙞𝙠!
+<div align="center">
 
-![Banner](https://raw.githubusercontent.com/topanim/topanim/7528d4b8baafcc60ffb5df5fc854ee823c871f49/github/banner.jpg)
+<img src="https://github.com/topanim/topanim/blob/main/github/banner.webp" alt="whatrushik banner" width="100%" />
 
-_"𝙒𝙧𝙞𝙩𝙚 𝙘𝙤𝙙𝙚 𝙩𝙝𝙖𝙩'𝙨 𝙖𝙨 𝙘𝙡𝙚𝙖𝙣 𝙖𝙨 𝙖 𝙛𝙤𝙧𝙚𝙨𝙩 𝙖𝙛𝙩𝙚𝙧 𝙧𝙖𝙞𝙣."_ 🌧️
+# GOR
 
-<!-- 🌳🍀🎋🪴🎍🎄🌲🌳🌴🍃🌱🌿☘️ -->
-<!-- ✍️🥷👀🐼🐧🐇🍀🎋🪴🎍🎄🌲🌳🌴🍃🌱🌿☘️🦖🦎🐩🦡🐳🐋🦐🦀🐡🦞⛄️☃️❄️🌩🫧☁️⛅️💫⭐️✨⚡️🌟☄️🔥🍡🍙🍚🥥🍸🍥🍣🎬🎲♟🎱🗻🏔⛰🧩🎯🎫🎟🏆🥇🥈🥉🎖🛟🗿🏝🗺🗽🚧⛩💡💻⏳⏰🧯🔋🪫💰💸🧬⛓️‍💥⛓️🪜🧰🪛🧨🔭💈⚗️💣🛎🎁🎏🎈🪄🎉📌🪩📍🗃📆📊📈📉🤍🔍🔎⚜️◻️📣💬💭🗯❔❕❗️❓‼️⁉️💯 -->
+<i>Software Developer & 
+Founder of WHAT Technologies</i>
 
-### 🪴 𝙈𝙮 <!--  𝙏𝙚𝙘𝙝  --> 𝙂𝙖𝙧𝙙𝙚𝙣
+<br/>
 
-[![Kotlin](https://img.shields.io/badge/-Kotlin-purple?logo=kotlin&logoColor=white)](https://kotlinlang.org)
-[![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white)](https://python.org)
-[![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-blue?logo=postgresql&logoColor=white)](https://postgresql.org)
+[![Telegram](https://img.shields.io/badge/TELEGRAM-09090b?style=for-the-badge&logo=telegram&logoColor=white&labelColor=000000)](https://t.me/whatrushik)
+[![VK](https://img.shields.io/badge/VK-09090b?style=for-the-badge&logo=vk&logoColor=white&labelColor=000000)](https://vk.com/whatrushik)
+[![Discord](https://img.shields.io/badge/DISCORD-09090b?style=for-the-badge&logo=discord&logoColor=white&labelColor=000000)](https://discordapp.com/users/694977590468804661)
+[![Email](https://img.shields.io/badge/GMAIL-09090b?style=for-the-badge&logo=gmail&logoColor=white&labelColor=000000)](mailto:gorogannisan641@gmail.com)
 
-[![Jetpack Compose](https://img.shields.io/badge/-Jetpack_Compose-green?logo=jetpackcompose&logoColor=white)](https://developer.android.com/compose)
-[![Disnake](https://img.shields.io/badge/-Disnake-3776AB?logo=discord&logoColor=white)](https://disnake.dev/)
-[![Aiogram](https://img.shields.io/badge/-Aiogram-26A5E4?logo=telegram&logoColor=white)](https://aiogram.dev)
+</div>
 
-<a href="https://www.gitanimals.org/en_US?utm_medium=image&utm_source=topanim&utm_content=farm">
-<img
-  src="https://render.gitanimals.org/farms/topanim"
-  width="600"
-  height="400"
-/>
-</a>
+### Стэк и инструменты
 
+![Kotlin](https://img.shields.io/badge/Kotlin-09090b?style=for-the-badge&logo=kotlin&logoColor=white)
+![Compose](https://img.shields.io/badge/Jetpack_Compose-09090b?style=for-the-badge&logo=jetpackcompose&logoColor=white)
+![Python](https://img.shields.io/badge/Python-09090b?style=for-the-badge&logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-09090b?style=for-the-badge&logo=javascript&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-09090b?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-09090b?style=for-the-badge&logo=docker&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-09090b?style=for-the-badge&logo=linux&logoColor=white)
 
-### 🌿 𝙒𝙝𝙖𝙩'𝙨 𝙂𝙧𝙚𝙚𝙣 𝙉𝙤𝙬
+### Текущий фокус
 
-- 🔭 **Working on:** [𝙒𝙃𝘼𝙏-𝙎𝙘𝙝𝙚𝙙𝙪𝙡𝙚](https://github.com/whatrushki/WHAT-Schedule-android.git)
-- ☘️ **Learning:** `Android` & `Jetpack Compose`
-- 🧰 **Tools:** `Koin`, `Ktor`, `Room`, `Kotlin Coroutines`
+- **Разработка:** <i>Мобильные и кроссплатформенные клиенты на **Jetpack Compose** / **Compose Multiplatform**.</i>
+- **Проект:** Работа над <a href="https://github.com/whatrushki/WHAT-Schedule-android"><img src="https://img.shields.io/badge/WHAT--Schedule-09090b?style=flat-square&logo=github&logoColor=white"/></a>
+- **Архитектура и библиотеки:** <i>Coroutines, Flow, Koin, Ktor, Room, Clean Architecture.</i>
+- **Автоматизация и боты:** <i>Разработка сервисов и ботов на базе Aiogram и Disnake.</i>
 
-### 🍃 𝙎𝙞𝙜𝙣𝙖𝙩𝙪𝙧𝙚 𝘾𝙤𝙙𝙚
+### Статистика GitHub
 
-```kotlin
-object GreenDev {
-    val skills = listOf(
-        Skill.ANDROID,
-        Skill.BOTS,
-        Skill.CLEAN_ARCH
-    )
+<div align="center">
 
-    fun buildProject() = lifecycleScope.launch {
-        viewModelScope.emit(State.Success)
-        Timber.d("${🌱} Feature shipped!")
-    }
-}
-```
+<img style="height: 22vh" src="https://github-stats-extended.vercel.app/api?username=topanim&show_icons=true&theme=dark&bg_color=09090b&title_color=ffffff&icon_color=ffffff&text_color=999999&border_color=27272a" alt="GitHub Stats" />
+<img style="height: 22vh" src="https://github-stats-extended.vercel.app/api/top-langs/?username=topanim&layout=compact&theme=dark&bg_color=09090b&title_color=ffffff&text_color=999999&border_color=27272a" alt="Top Langs" />
 
-### 🌎 𝙇𝙚𝙩'𝙨 𝙂𝙧𝙤𝙬 𝙏𝙤𝙜𝙚𝙩𝙝𝙚𝙧
+</div>
 
-[![VK](https://img.shields.io/badge/-VK-0A66C2?logo=vk)](https://vk.com/whatrushik)
-[![Discord](https://img.shields.io/badge/-Discord-blue?logo=discord&logoColor=white)](https://discordapp.com/users/694977590468804661)
-[![Telegram](https://img.shields.io/badge/-Telegram-26A5E4?logo=telegram&logoColor=white)](https://t.me/whatrushik)
-[![Email](https://img.shields.io/badge/-Email-EA4335?logo=gmail&logoColor=white)](mailto:gorogannisan641@gmail.com)
-
----
-
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=topanim&show_icons=true&theme=vue-dark&bg_color=22543D&title_color=8BC34A&icon_color=4CAF50)](https://github.com/topanim)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=topanim&layout=compact&theme=vue-dark&bg_color=22543D&title_color=8BC34A)](https://github.com/topanim)
+<div align="center">
+<sub>© whatrushik · WHAT Technologies</sub>
+</div>
